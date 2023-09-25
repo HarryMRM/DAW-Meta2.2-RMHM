@@ -1,15 +1,24 @@
 const donadores = [
     {
         rfc:1,
-        nombre:"lol",
-        proyectoAs: "tacos.com",
-        imagen:"trucoteca.com"
+        nombre:"John Doe",
+        proyectosAsociados: ["Proyecto 1","Proyecto 2"],
+        imagen:"trucoteca.com",
+        cantidadTotalDonada:2000
     },
     {
         rfc:2,
-        nombre:"XD",
-        proyectoAs: "tacos.com",
-        imagen:"trucoteca.com"
+        nombre:"Lillie Alola",
+        proyectosAsociados: ["Proyecto 1","Proyecto 3"],
+        imagen:"trucoteca.com",
+        cantidadTotalDonada:100000
+    },
+    {
+        rfc:3,
+        nombre:"Annette Fantine Dominic",
+        proyectosAsociados: ["Proyecto 2","Proyecto 4"],
+        imagen:"trucoteca.com",
+        cantidadTotalDonada:5000
     }
 ]
 const findAll = function() {

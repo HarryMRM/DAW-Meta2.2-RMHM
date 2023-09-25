@@ -1,12 +1,12 @@
-const productos = require('../modelos/proyecto');
+const proyectos = require('../modelos/proyectos');
 
 const getAll = async function (req,res) {
-    let p = productos.findAll();
+    let p = proyectos.findAll();
     await res.json(p);
 }
 
 const getById = async function (req,res) {
-    await res.json(productos.findById(req.params.id));
+    await res.json(proyectos.findById(req.params.id));
 }
 
 exports.getAll = getAll;

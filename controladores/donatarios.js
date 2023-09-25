@@ -1,17 +1,16 @@
-const donadores = require('../modelos/donadores');
+const donatarios = require('../modelos/donatarios');
 
 const getAll = async function (req,res) {
-    let p = donadores.findAll();
+    let p = donatarios.findAll();
     await res.json(p);
 }
 
 const getByRfc = async function (req,res) {
-    console.log(req);
-    await res.json(donadores.findByRfc(req.params.rfc));
+    await res.json(donatarios.findByRfc(req.params.rfc));
 }
 
 const add = async function (req,res) {
-    const nuevoDonador = donadores.add(req.body);
+    const nuevoDonador = donatarios.add(req.body);
     await res.json(nuevoDonador);
 }
 
