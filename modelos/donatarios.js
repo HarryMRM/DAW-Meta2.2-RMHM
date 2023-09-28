@@ -48,7 +48,7 @@ const findByRfc = function(req) {
 * el server se pare. 
 */
 const add = function(body) {
-    // donatarios.push(body);
+    donatarios.push(body);
     return body;
 }
 
