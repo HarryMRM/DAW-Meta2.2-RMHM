@@ -1,3 +1,12 @@
+/*
+ * Servidor de Crowfunding, Mediante el uso de
+ * middleware y express (router). Las operaciones
+ * realizadas daran resultados simulados dependiendo de
+ * la operacion solicitada, dentro de algunas operaciones
+ * del CRUD estaran comentadas versiones que afectan
+ * memoria temporal.
+ */
+
 const cors = require('cors');
 const express = require('express');
 const proyectosRouter = require('./routes/proyectos');
