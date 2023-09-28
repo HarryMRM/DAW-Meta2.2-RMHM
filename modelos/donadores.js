@@ -40,17 +40,22 @@ const findByRfc = function(req) {
     }
 }
 
-// Simula la adicion de un dato al modelo, esta comentada
-// una linea de codigo que afecta la memoria temporal, pero
-// para fines de simulacion solo se regresara lo solicitado.
+/*
+* Adicion de un dato al modelo, cambia el
+* arreglo internamente y se consevara hasta que
+* el server se pare. 
+*/
 const add = function(body) {
-    // donadores.push(body);
+    donadores.push(body);
     return body;
 }
 
-// Simula la edicion de un dato al modelo, esta comentada
-// una linea de codigo que afecta la memoria temporal, pero
-// para fines de simulacion solo se regresara lo solicitado.
+/*
+* Edicion de un dato del modelo, cambia el
+* arreglo internamente y se consevara hasta que
+* el server se pare, necesita todos los valores para
+* funcionar si o si. 
+*/
 const put = function(req) {
     let llaves = ["rfc","nombre","proyectosAsociados","imagen","cantidadTotalDonada"];
     let isbodyValido = true; 
@@ -61,8 +66,8 @@ const put = function(req) {
         }
     });
     if(isbodyValido && p !== undefined){
-        // let i = donadores.indexOf(p);
-        // donadores[i] = req.body;
+        let i = donadores.indexOf(p);
+        donadores[i] = req.body;
         return req.body;
     }
     else{
@@ -70,9 +75,11 @@ const put = function(req) {
     }
 }
 
-// Simula la edicion de un dato al modelo, esta comentada
-// una linea de codigo que afecta la memoria temporal, pero
-// para fines de simulacion solo se regresara lo solicitado.
+/*
+* Edicion de un dato del modelo, cambia el
+* arreglo internamente y se consevara hasta que
+* el server se pare. 
+*/
 const patch = function(req) {
     let llaves = ["rfc","nombre","proyectosAsociados","imagen","cantidadTotalDonada"];
     let isbodyValido = false; 
@@ -83,28 +90,34 @@ const patch = function(req) {
         }
     });
     if(isbodyValido && p !== undefined){
-        // let i = donadores.indexOf(p);
-        // donadores[i] = req.body;
-        return req.body;
+        let i = donadores.indexOf(p);
+        donadores[i] = req.body;
+        return donadores[i];
     }
     else{
         return {};
     }
 }
 
-// Simula el borrado de los datos del modelo, esta comentada
-// una linea de codigo que afecta la memoria temporal, pero
-// para fines de simulacion solo se regresara lo solicitado.
+/*
+* Borrado de todos los datos del modelo, cambia el
+* arreglo internamente y se consevara hasta que
+* el server se pare, necesita todos los valores para
+* funcionar si o si. 
+*/
 const deleteAll = function(req) {
-    // donadores = [];
+    donadores = [];
     return [];
 }
 
-// Simula el borrado de un dato al modelo, esta comentada
-// una linea de codigo que afecta la memoria temporal, pero
-// para fines de simulacion solo se regresara lo solicitado.
+/*
+* Borrado de un dato del modelo, cambia el
+* arreglo internamente y se consevara hasta que
+* el server se pare, necesita todos los valores para
+* funcionar si o si. 
+*/
 const deleteByRfc = function(req) {
-    // donadores p = donadores.filter(e => e.rfc != req.params.rfc);
+    donadores = donadores.filter(e => e.rfc != req.params.rfc);
     let p = donadores.find(e => e.rfc == req.params.rfc);
     return p;
 }

@@ -42,17 +42,22 @@ const findByRfc = function(req) {
     }
 }
 
-// Simula la adicion de un dato al modelo, esta comentada
-// una linea de codigo que afecta la memoria temporal, pero
-// para fines de simulacion solo se regresara lo solicitado.
+/*
+* Adicion de un dato al modelo, cambia el
+* arreglo internamente y se consevara hasta que
+* el server se pare. 
+*/
 const add = function(body) {
     // donatarios.push(body);
     return body;
 }
 
-// Simula la edicion de un dato al modelo, esta comentada
-// una linea de codigo que afecta la memoria temporal, pero
-// para fines de simulacion solo se regresara lo solicitado.
+/*
+* Edicion de un dato del modelo, cambia el
+* arreglo internamente y se consevara hasta que
+* el server se pare, necesita todos los valores para
+* funcionar si o si. 
+*/
 const put = function(req) {
     let llaves = ["rfc","nombre","proyectosAsociados","imagen"];
     let isbodyValido = true; 
@@ -63,8 +68,8 @@ const put = function(req) {
         }
     });
     if(isbodyValido && p !== undefined){
-        // let i = donatarios.indexOf(p);
-        // donatarios[i] = req.body;
+        let i = donatarios.indexOf(p);
+        donatarios[i] = req.body;
         return req.body;
     }
     else{
@@ -72,9 +77,11 @@ const put = function(req) {
     }
 }
 
-// Simula la edicion de un dato al modelo, esta comentada
-// una linea de codigo que afecta la memoria temporal, pero
-// para fines de simulacion solo se regresara lo solicitado.
+/*
+* Edicion de un dato del modelo, cambia el
+* arreglo internamente y se consevara hasta que
+* el server se pare. 
+*/
 const patch = function(req) {
     let llaves = ["rfc","nombre","proyectosAsociados","imagen"];
     let isbodyValido = false; 
@@ -85,8 +92,8 @@ const patch = function(req) {
         }
     });
     if(isbodyValido && p !== undefined){
-        // let i = donatarios.indexOf(p);
-        // donatarios[i] = req.body;
+        let i = donatarios.indexOf(p);
+        donatarios[i] = req.body;
         return req.body;
     }
     else{
@@ -94,19 +101,25 @@ const patch = function(req) {
     }
 }
 
-// Simula el borrado de los datos del modelo, esta comentada
-// una linea de codigo que afecta la memoria temporal, pero
-// para fines de simulacion solo se regresara lo solicitado.
+/*
+* Borrado de todos los datos del modelo, cambia el
+* arreglo internamente y se consevara hasta que
+* el server se pare, necesita todos los valores para
+* funcionar si o si. 
+*/
 const deleteAll = function(req) {
-    // donatarios = [];
+    donatarios = [];
     return [];
 }
 
-// Simula el borrado de un dato al modelo, esta comentada
-// una linea de codigo que afecta la memoria temporal, pero
-// para fines de simulacion solo se regresara lo solicitado.
+/*
+* Borrado de un dato del modelo, cambia el
+* arreglo internamente y se consevara hasta que
+* el server se pare, necesita todos los valores para
+* funcionar si o si. 
+*/
 const deleteByRfc = function(req) {
-    // donatarios p = donatarios.filter(e => e.rfc != req.params.rfc);
+    donatarios = donatarios.filter(e => e.rfc != req.params.rfc);
     let p = donatarios.find(e => e.rfc == req.params.rfc);
     return p;
 }
